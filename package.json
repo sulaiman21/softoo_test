@@ -58,6 +58,7 @@
 		]
 	},
 	"devDependencies": {
+		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
 		"@types/hoist-non-react-statics": "^3.3.4",
 		"@types/redux-logger": "^3.0.11"
 	}

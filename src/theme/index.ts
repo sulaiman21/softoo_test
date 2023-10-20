@@ -9,22 +9,10 @@ const defaultTheme = createTheme({
 		fontWeightRegular: 400,
 	},
 	palette: {
-		bw: {
-			black: "#000000",
-			blackLight: "#222122",
-			white: "#ffffff",
-			grey: "#E8E8E8",
-			greyLight: "#00000080",
-			greyLightest: "#000000BF",
-			backgroundColor: "#F7F7F7",
-			blackLightest: "#00000040",
-			green: "#7CC08B",
-			greybtn: "#DCDCDC",
-		},
 		primary: {
-			light: "#757ce8",
-			main: "#EC1E26",
-			dark: "#002884",
+			light: "#42a5f5",
+			main: "#1976d2",
+			dark: "#1565c0",
 		},
 		secondary: {
 			light: "#004F70",

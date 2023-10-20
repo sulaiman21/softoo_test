@@ -1,16 +1,3 @@
-type BlackAndWhiteSimple = {
-	black: string;
-	blackLight: string;
-	blackLightest: string;
-	white: string;
-	grey: string;
-	greyLight: string;
-	greyLightest: string;
-	backgroundColor: string;
-	green: string;
-	greybtn: string;
-};
-
 declare module "@mui/material/styles" {
 	interface PaletteColorOptions {
 		main: string;
@@ -30,13 +17,9 @@ declare module "@mui/material/styles" {
 		light?: string;
 	}
 
-	interface Palette {
-		bw: BlackAndWhiteSimple;
-	}
+	interface Palette {}
 
-	interface PaletteOptions {
-		bw: BlackAndWhiteSimple;
-	}
+	interface PaletteOptions {}
 }
 
 export {};

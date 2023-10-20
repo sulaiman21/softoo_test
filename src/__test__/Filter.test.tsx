@@ -2,6 +2,7 @@ import { Provider } from "react-redux";
 import { cleanup, render, screen } from "@testing-library/react";
 import Filters from "../components/Filters";
 import { store } from "../libs";
+import { act } from "react-dom/test-utils";
 
 afterEach(cleanup);
 
@@ -25,23 +26,11 @@ describe("Filters Component", () => {
 		);
 
 		const filters = screen.getByTestId("filter-select");
-		filters.click();
+		act(() => {
+			filters.click();
+		});
 
 		const clearFilter = screen.queryByTestId("clear_filter");
 		expect(clearFilter).not.toBeInTheDocument();
 	});
-
-	// test("updates the active filter when an option is selected", async () => {
-	// 	render(
-	// 		<Provider store={store}>
-	// 			<Filters />
-	// 		</Provider>
-	// 	);
-
-	// 	// Find the select element and change its value
-	// 	const selectElement = screen.getByTestId("filter-select-input");
-	// 	fireEvent.change(selectElement, { target: { value: "Red" } });
-
-	// 	expect(selectElement).toHaveValue("Red");
-	// });
 });
