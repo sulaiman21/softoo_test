@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { createLogger } from "redux-logger";
+// import { createLogger } from "redux-logger";
 import cartListSlice from "./cartList/cartList.slice";
 import productSlice from "./productList/product.slice";
 import filtersSlice from "./filters/filters.slice";
 
-const logger = createLogger({
-	// ADD Additional config
-});
+// const logger = createLogger({
+// 	// ADD Additional config
+// });
 
 const store = configureStore({
 	reducer: {
@@ -14,9 +14,9 @@ const store = configureStore({
 		products: productSlice,
 		filters: filtersSlice,
 	},
-	middleware: (getDefaultMiddleware) => {
-		return getDefaultMiddleware().concat(logger);
-	},
+	// middleware: (getDefaultMiddleware) => {
+	// 	return getDefaultMiddleware().concat(logger);
+	// },
 	devTools: process.env.NODE_ENV === "development",
 });
 

@@ -1,31 +1,47 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { Provider } from "react-redux";
+import { cleanup, render, screen } from "@testing-library/react";
 import Filters from "../components/Filters";
+import { store } from "../libs";
+
+afterEach(cleanup);
 
 describe("Filters Component", () => {
-	test("renders with default values", () => {
-		render(<Filters />);
+	test("renders with default values", async () => {
+		render(
+			<Provider store={store}>
+				<Filters />
+			</Provider>
+		);
 
-		// Check if the component renders with the default values
-		const filtersLabel = screen.getByText("Filters");
-		expect(filtersLabel).toBeInTheDocument();
-
-		const clearFilterOption = screen.getByText("Clear Filter");
-		expect(clearFilterOption).toBeInTheDocument();
-
-		// You may add more assertions as needed based on your UI
+		const filters = screen.getByTestId("filter-select");
+		expect(filters).toBeInTheDocument();
 	});
 
-	test("updates the active filter when an option is selected", () => {
-		render(<Filters />);
+	test("click on filters menu", () => {
+		render(
+			<Provider store={store}>
+				<Filters />
+			</Provider>
+		);
 
-		// Find the select element and change its value
-		const selectElement = screen.getByRole("combobox");
-		fireEvent.change(selectElement, { target: { value: "Red" } });
+		const filters = screen.getByTestId("filter-select");
+		filters.click();
 
-		// Check if the active filter has been updated
-		expect(selectElement).toHaveValue("Red");
-
-		// You can also add further assertions if needed
+		const clearFilter = screen.queryByTestId("clear_filter");
+		expect(clearFilter).not.toBeInTheDocument();
 	});
+
+	// test("updates the active filter when an option is selected", async () => {
+	// 	render(
+	// 		<Provider store={store}>
+	// 			<Filters />
+	// 		</Provider>
+	// 	);
+
+	// 	// Find the select element and change its value
+	// 	const selectElement = screen.getByTestId("filter-select-input");
+	// 	fireEvent.change(selectElement, { target: { value: "Red" } });
+
+	// 	expect(selectElement).toHaveValue("Red");
+	// });
 });

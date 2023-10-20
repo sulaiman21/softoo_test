@@ -26,8 +26,14 @@ const Filters: React.FC = () => {
 				onChange={(e) => {
 					setActiveFilter(e.target.value);
 				}}
+				data-testid="filter-select"
+				inputProps={{
+					"data-testid": "filter-select-input",
+				}}
 			>
-				<MenuItem value="">Clear Filter</MenuItem>
+				<MenuItem value="" data-testid="clear_filter">
+					Clear Filter
+				</MenuItem>
 				{filters.length &&
 					filters.map((filter) => (
 						<MenuItem value={filter} key={filter}>

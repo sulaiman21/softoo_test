@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
+import { Typography } from "@mui/material";
+
 import BaseLayout from "../../layouts";
 import { useAppDispatch, useAppSelect } from "../../hooks/useRedux";
 import { getProductList } from "../../libs/redux/productList/product.actions";
-import { Typography } from "@mui/material";
 import Filters from "../../components/Filters";
 import RenderListItems from "./components/RenderListItems";
 
